@@ -17,6 +17,17 @@ export default function yAxis({width, height, isNap}) {
             stroke="#121212"
             strokeWidth={1}
           />
+
+          <Group x={10}>
+            <Text
+              fill="#717171"
+              x={40}
+              y={this.getScalePosition(index, gridPoints, height)}
+              font={`14px Arial`}
+              alignment="right">
+              {yValues[index]}
+            </Text>
+          </Group>
         </Group>
       ))}
     </Surface>
@@ -43,6 +54,13 @@ getScaleTicks = (index, gridPoints, width, height) => {
     .range([0, height - 10]);
   let position = y(gridPoints[index]);
   return new Path().moveTo(0, position).line(width, 0);
+};
+
+getScalePosition = (index, gridPoints, height) => {
+  let y = scaleLinear()
+    .domain([0, 100])
+    .range([-10, height - 20]);
+  return y(gridPoints[index]);
 };
 
 const styles = StyleSheet.create({

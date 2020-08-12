@@ -16,6 +16,17 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 import BarGraph from './BarGraph';
 
 const App: () => React$Node = () => {
+  const color = '#FFC77D';
+
+  const data = [
+    {duration: 4, column: 0},
+    {duration: 7, column: 1},
+    {duration: 6, column: 2},
+    {duration: 7, column: 3},
+    {duration: 8, column: 4},
+    {duration: 5, column: 5},
+    {duration: 8, column: 6},
+  ];
   return (
     <>
       <LinearGradient
@@ -49,7 +60,7 @@ const App: () => React$Node = () => {
            * The Column Chart will live here
            *
            */}
-          <BarGraph />
+          <BarGraph color={color} data={data} />
         </View>
 
         <View style={styles.footer}></View>
